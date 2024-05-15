@@ -1,6 +1,6 @@
 {
   "name": "iregexp-check",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "James Prior",
   "license": "MIT",
   "description": "An I-Regexp checker for JavaScript",

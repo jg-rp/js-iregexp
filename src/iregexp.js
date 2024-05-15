@@ -903,6 +903,9 @@ function peg$parse(input, options) {
       peg$currPos = s0;
       s0 = peg$FAILED;
     }
+    if (s0 === peg$FAILED) {
+      s0 = peg$parsesingle_char_esc();
+    }
 
     return s0;
   }

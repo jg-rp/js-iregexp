@@ -40,6 +40,7 @@ const VALID_TEST_CASES: TestCase[] = [
   { description: "range_quantifier", pattern: String.raw`[ab]{3,5}` },
   { description: "range_quantifier_open_ended", pattern: String.raw`[ab]{3,}` },
   { description: "char_class_expr_negation", pattern: String.raw`[^ab]` },
+  { description: "char_class_expr_escape", pattern: String.raw`[\]ab]` },
   {
     description: "unicode_character_category_letter",
     pattern: String.raw`\p{L}`,
