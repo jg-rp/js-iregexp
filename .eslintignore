@@ -1,0 +1,5 @@
+lib
+dist
+jest.config.js
+benchmark
+docs
