@@ -7,11 +7,11 @@ import pkg from "./package.json" assert { type: "json" };
 import commonjs from "@rollup/plugin-commonjs";
 
 const extensions = [".js", ".jsx", ".ts", ".tsx"];
-const name = "iregexp";
+const name = "iregexp_check";
 const license = readFileSync("./LICENSE", { encoding: "utf8" });
 
 const banner = `/*
- * iregexp version ${pkg.version}
+ * iregexp-check version ${pkg.version}
  * https://github.com/jg-rp/js-iregexp
  * 
  * ${license.split("\n").join("\n * ")}

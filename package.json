@@ -1,5 +1,5 @@
 {
-  "name": "iregexp",
+  "name": "iregexp-check",
   "version": "0.1.0",
   "author": "James Prior",
   "license": "MIT",
@@ -28,11 +28,11 @@
     "maintained node versions",
     "not op_mini all"
   ],
-  "main": "dist/iregexp-cjs.js",
-  "module": "dist/iregexp.esm.js",
-  "browser": "dist/iregexp.iife.js",
-  "browser-min": "dist/iregexp.iife.min.js",
-  "jsdelivr": "dist/iregexp.iife.min.js",
+  "main": "dist/iregexp-check-cjs.js",
+  "module": "dist/iregexp-check.esm.js",
+  "browser": "dist/iregexp-check.iife.js",
+  "browser-min": "dist/iregexp-check.iife.min.js",
+  "jsdelivr": "dist/iregexp-check.iife.min.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist/**/*"
