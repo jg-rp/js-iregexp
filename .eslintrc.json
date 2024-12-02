@@ -28,5 +28,5 @@
     "sonarjs/no-duplicate-string": "off"
   },
   "env": { "node": true },
-  "ignorePatterns": ["iregexp.js", "check.js"]
+  "ignorePatterns": ["iregexp.js", "check.js", "convert.js"]
 }
