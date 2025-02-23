@@ -37,6 +37,10 @@ const VALID_TEST_CASES: TestCase[] = [
   { description: "char_class_expr", pattern: String.raw`[0-9]` },
   { description: "branch", pattern: String.raw`foo|bar` },
   { description: "range_quantifier_exact", pattern: String.raw`[ab]{3}` },
+  {
+    description: "range_quantifier_exact_double_digit",
+    pattern: String.raw`[ab]{99}`,
+  },
   { description: "range_quantifier", pattern: String.raw`[ab]{3,5}` },
   { description: "range_quantifier_open_ended", pattern: String.raw`[ab]{3,}` },
   {
