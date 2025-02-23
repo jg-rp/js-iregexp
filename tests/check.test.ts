@@ -37,8 +37,20 @@ const VALID_TEST_CASES: TestCase[] = [
   { description: "char_class_expr", pattern: String.raw`[0-9]` },
   { description: "branch", pattern: String.raw`foo|bar` },
   { description: "range_quantifier_exact", pattern: String.raw`[ab]{3}` },
+  {
+    description: "range_quantifier_exact_double_digit",
+    pattern: String.raw`[ab]{99}`,
+  },
   { description: "range_quantifier", pattern: String.raw`[ab]{3,5}` },
   { description: "range_quantifier_open_ended", pattern: String.raw`[ab]{3,}` },
+  {
+    description: "range_quantifier_double_digit",
+    pattern: String.raw`[ab]{13,25}`,
+  },
+  {
+    description: "range_quantifier_double_digit_open_ended",
+    pattern: String.raw`[ab]{333,}`,
+  },
   { description: "char_class_expr_negation", pattern: String.raw`[^ab]` },
   { description: "char_class_expr_escape", pattern: String.raw`[\]ab]` },
   {
@@ -307,7 +319,7 @@ describe("valid iregexp patterns", () => {
     "$description",
     ({ pattern }: TestCase) => {
       expect(check(pattern)).toBe(true);
-    }
+    },
   );
 });
 
@@ -316,6 +328,6 @@ describe("invalid iregexp patterns", () => {
     "$description",
     ({ pattern }: TestCase) => {
       expect(check(pattern)).toBe(false);
-    }
+    },
   );
 });
