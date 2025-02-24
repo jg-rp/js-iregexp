@@ -266,8 +266,10 @@ function peg$parse(input, options) {
   var peg$e30 = peg$literalExpectation("C", false);
   var peg$e31 = peg$classExpectation(["c", "f", ["n", "o"]], false, false);
 
-  var peg$f0 = function(c) { return isNormalChar(c) };
-  var peg$f1 = function(c) { return isCCChar(c) };
+  var peg$f0 = function(ir) { return new RegExp('^(?:' + ir.flat(Infinity).filter(c => c).join('') + ')$', 'u') };
+  var peg$f1 = function(c) { return isNormalChar(c) };
+  var peg$f2 = function() { return '[^\n\r]' };
+  var peg$f3 = function(c) { return isCCChar(c) };
   var peg$currPos = options.peg$currPos | 0;
   var peg$savedPos = peg$currPos;
   var peg$posDetailsCache = [{ line: 1, column: 1 }];
@@ -431,9 +433,13 @@ function peg$parse(input, options) {
   }
 
   function peg$parsestart() {
-    var s0;
+    var s0, s1;
 
-    s0 = peg$parseiregexp();
+    s0 = peg$currPos;
+    s1 = peg$parseiregexp();
+    peg$savedPos = s0;
+    s1 = peg$f0(s1);
+    s0 = s1;
 
     return s0;
   }
@@ -691,7 +697,7 @@ function peg$parse(input, options) {
     }
     if (s1 !== peg$FAILED) {
       peg$savedPos = peg$currPos;
-      s2 = peg$f0(s1);
+      s2 = peg$f1(s1);
       if (s2) {
         s2 = undefined;
       } else {
@@ -712,15 +718,21 @@ function peg$parse(input, options) {
   }
 
   function peg$parsechar_class() {
-    var s0;
+    var s0, s1;
 
+    s0 = peg$currPos;
     if (input.charCodeAt(peg$currPos) === 46) {
-      s0 = peg$c6;
+      s1 = peg$c6;
       peg$currPos++;
     } else {
-      s0 = peg$FAILED;
+      s1 = peg$FAILED;
       if (peg$silentFails === 0) { peg$fail(peg$e9); }
     }
+    if (s1 !== peg$FAILED) {
+      peg$savedPos = s0;
+      s1 = peg$f2();
+    }
+    s0 = s1;
     if (s0 === peg$FAILED) {
       s0 = peg$parsesingle_char_esc();
       if (s0 === peg$FAILED) {
@@ -910,7 +922,7 @@ function peg$parse(input, options) {
     }
     if (s1 !== peg$FAILED) {
       peg$savedPos = peg$currPos;
-      s2 = peg$f1(s1);
+      s2 = peg$f3(s1);
       if (s2) {
         s2 = undefined;
       } else {

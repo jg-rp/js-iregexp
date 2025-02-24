@@ -22,7 +22,7 @@
     }
 }}
 
-start = iregexp
+start = ir:iregexp { return new RegExp('^(?:' + ir.flat(Infinity).filter(c => c).join('') + ')$', 'u') }
 
 iregexp = branch ("|" branch)*
 branch = piece*
@@ -31,7 +31,7 @@ quantifier = ("*" / "+" / "?") / range_quantifier
 range_quantifier = "{" [0-9]+ ("," [0-9]*)? "}"
 atom = normal_char / char_class / ("(" iregexp ")")
 normal_char = @c:. &{ return isNormalChar(c) }
-char_class = "." / single_char_esc / char_class_esc / char_class_expr
+char_class = "." { return '[^\n\r]' } / single_char_esc / char_class_esc / char_class_expr
 
 single_char_esc = "\\" (
         [\u0028-\u002B]
